@@ -1,0 +1,26 @@
+---
+title: MDX 组件用法
+description: 在文章中嵌入视频、图片和自定义组件的示例
+pubDate: 2026-08-06
+tags: [指南, MDX]
+---
+
+这是一篇展示 MDX 全局组件用法的示例文章。
+
+## 嵌入视频
+
+下面的组件会自动解析 YouTube / Bilibili / 本地视频地址：
+
+<Video src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" title="示例视频" />
+
+## 嵌入图片（带灯箱）
+
+点击图片可全屏查看：
+
+<Figure src="/images/brand/Abstract_artistic_representati_2026-08-05T17-20-46.png" caption="黑洞 · 真理之光" />
+
+## 普通图片也可以有灯箱
+
+给任意图片加上 `data-lightbox` 属性即可：
+
+<img src="/images/brand/A_mysterious_catgirl_maiden_na_2026-08-05T17-20-27.png" alt="星璃主视觉" data-lightbox />

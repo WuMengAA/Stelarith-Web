@@ -1,0 +1,6 @@
+{
+  "name": "工作站",
+  "category": "主机",
+  "description": "写代码和跑实验的主力机。",
+  "order": 2
+}

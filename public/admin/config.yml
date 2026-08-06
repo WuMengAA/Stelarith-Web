@@ -1,0 +1,109 @@
+# 星璃 Stelarith · Decap CMS 配置
+# 后台地址：部署后访问 /admin/
+# 需要将本仓库托管到 GitHub 并启用 Git Gateway（或使用 GitHub 后端）
+
+backend:
+  name: git-gateway
+  branch: main
+
+# 本地预览配置（可选）
+local_backend: true
+
+# 媒体文件
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+# 站点 Logo
+logo_url: https://stelarith.dev/favicon.svg
+
+collections:
+  - name: posts
+    label: "文章"
+    folder: "src/content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "描述", name: "description", widget: "text", required: false }
+      - { label: "发布日期", name: "pubDate", widget: "datetime" }
+      - { label: "更新日期", name: "updatedDate", widget: "datetime", required: false }
+      - { label: "草稿", name: "draft", widget: "boolean", default: false }
+      - { label: "标签", name: "tags", widget: "list", default: [] }
+      - {
+          label: "布局",
+          name: "layout",
+          widget: "select",
+          options: ["default", "wide"],
+          default: "default",
+        }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  - name: projects
+    label: "项目"
+    folder: "src/content/projects"
+    create: true
+    slug: "{{slug}}"
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "描述", name: "description", widget: "text", required: false }
+      - { label: "发布日期", name: "pubDate", widget: "datetime" }
+      - { label: "草稿", name: "draft", widget: "boolean", default: false }
+      - { label: "标签", name: "tags", widget: "list", default: [] }
+      - {
+          label: "状态",
+          name: "status",
+          widget: "select",
+          options: ["active", "archived", "idea"],
+          default: "idea",
+        }
+      - { label: "源码地址", name: "repo", widget: "string", required: false }
+      - { label: "演示地址", name: "demo", widget: "string", required: false }
+      - {
+          label: "布局",
+          name: "layout",
+          widget: "select",
+          options: ["default", "wide"],
+          default: "default",
+        }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  - name: notes
+    label: "笔记"
+    folder: "src/content/notes"
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "描述", name: "description", widget: "text", required: false }
+      - { label: "发布日期", name: "pubDate", widget: "datetime" }
+      - { label: "草稿", name: "draft", widget: "boolean", default: false }
+      - { label: "标签", name: "tags", widget: "list", default: [] }
+      - {
+          label: "布局",
+          name: "layout",
+          widget: "select",
+          options: ["default", "wide"],
+          default: "default",
+        }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  - name: docs
+    label: "文档"
+    folder: "src/content/docs"
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "描述", name: "description", widget: "text", required: false }
+      - { label: "分组", name: "group", widget: "string", default: "通用" }
+      - { label: "排序", name: "order", widget: "number", default: 0 }
+      - { label: "草稿", name: "draft", widget: "boolean", default: false }
+      - { label: "正文", name: "body", widget: "markdown" }

@@ -1,0 +1,53 @@
+---
+title: "用 Astro 搭建静态博客：从零到上线"
+description: "一篇关于 Astro 静态站点开发实践的记录，涵盖内容集合、MDX、RSS 与部署。"
+pubDate: 2026-08-05
+tags: ["技术", "Astro", "前端"]
+---
+
+## 为什么选 Astro
+
+Astro 的核心理念是 **内容优先**：
+
+- 静态优先，默认零 JS
+- 内容集合（Content Collections）提供类型安全
+- MDX 让组件与内容自由混合
+
+## 内容集合
+
+```ts
+// src/content.config.ts
+import { defineCollection, z } from "astro:content";
+
+const posts = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.coerce.date(),
+    tags: z.array(z.string()).default([]),
+  }),
+});
+```
+
+## 页面路由
+
+使用 `[...slug].astro` 配合 `getStaticPaths()` 生成详情页：
+
+```astro
+---
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+const { post } = Astro.props;
+---
+
+<article>{post.data.title}</article>
+```
+
+## 部署
+
+`astro build` 输出纯静态文件到 `dist/`，可以部署到任意静态托管平台。
