@@ -12,6 +12,10 @@ dist/
 
 # 内容缓存
 public/content-data/
+.data/
+content.config.ts.bak
+server/utils/content-reader.ts
+server/api/debug.ts
 
 # 环境
 .env
