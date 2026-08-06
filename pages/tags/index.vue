@@ -8,7 +8,7 @@
             v-for="[tag, count] in tags"
             :key="tag"
             :to="`/tags/${tag}`"
-            class="underline-offset-4 transition-colors duration-300 hover:text-star-100 hover:underline"
+            class="underline-offset-4 transition-colors duration-300 hover:text-accent-400 hover:underline"
             :class="count >= 3 ? 'text-lg text-star-200' : count === 2 ? 'text-base text-star-300' : 'text-sm text-star-400'"
           >
             #{{ tag }}

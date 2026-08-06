@@ -5,7 +5,7 @@
       <template v-if="items.length > 0">
         <div class="space-y-8">
           <div v-for="item in items" :key="`${item.kind}-${item.title}`">
-            <NuxtLink :to="item.url" class="group flex items-baseline justify-between gap-4 border-b border-space-500/10 py-3 transition-colors hover:border-star-400/40">
+            <NuxtLink :to="item.url" class="group flex items-baseline justify-between gap-4 border-b border-space-500/10 py-3 transition-colors hover:border-accent-500/40">
               <span class="flex items-baseline gap-3">
                 <span class="shrink-0 text-[10px] uppercase tracking-widest text-star-400">{{ item.kind }}</span>
                 <span class="text-sm text-star-200 transition-colors group-hover:text-white">{{ item.title }}</span>

@@ -7,7 +7,7 @@
           <button
             type="button"
             class="border px-3 py-1.5 text-xs tracking-widest transition-colors"
-            :class="activeFilter === 'all' ? 'border-star-400/60 text-star-100' : 'border-space-500/25 text-star-400 hover:border-space-400/50 hover:text-star-100'"
+            :class="activeFilter === 'all' ? 'border-accent-500/70 text-accent-400' : 'border-space-500/25 text-gray-400 hover:border-accent-500/40 hover:text-accent-400'"
             @click="activeFilter = 'all'"
           >
             全部 ({{ images.length }})
@@ -17,7 +17,7 @@
             :key="tag"
             type="button"
             class="border px-3 py-1.5 text-xs tracking-widest transition-colors"
-            :class="activeFilter === tag ? 'border-star-400/60 text-star-100' : 'border-space-500/25 text-star-400 hover:border-space-400/50 hover:text-star-100'"
+            :class="activeFilter === tag ? 'border-accent-500/70 text-accent-400' : 'border-space-500/25 text-gray-400 hover:border-accent-500/40 hover:text-accent-400'"
             @click="activeFilter = tag"
           >
             {{ tag }} ({{ tagCount[tag] }})

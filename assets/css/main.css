@@ -1,47 +1,73 @@
 /* ============================================================
-   Stelarith · 全局样式（黑白极简 + 星璃紫 accent）
-   对应原 Astro 版 tailwind 主题
+   Stelarith · 全局样式
+   大体黑白（纯黑背景 + 白灰字体），星璃紫作为彩色点缀
    ============================================================ */
 @import "tailwindcss";
 
 @theme {
-  /* 星璃色板（映射原 Tailwind 主题） */
-  --color-star-50: #faf9ff;
-  --color-star-100: #f1efff;
-  --color-star-200: #e3ddff;
-  --color-star-300: #c9b8ff;
-  --color-star-400: #a98fff;
-  --color-star-500: #9b7bff;
-  --color-star-600: #7b61ff;
-  --color-star-700: #5a3fbe;
-  --color-star-800: #4b349c;
-  --color-star-900: #35257a;
+  /* === 纯灰阶（背景 / 边框 / 中性文字，star/space/glaze 全部映射灰阶 = 大体黑白） === */
+  --color-gray-50: #ffffff;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e6e6e6;
+  --color-gray-300: #d1d1d1;
+  --color-gray-400: #a8a8a8;
+  --color-gray-500: #7a7a7a;
+  --color-gray-600: #555555;
+  --color-gray-700: #3a3a3a;
+  --color-gray-800: #222222;
+  --color-gray-900: #141414;
+  --color-gray-950: #0a0a0a;
 
-  --color-space-50: #f4f4f6;
-  --color-space-100: #e6e6ea;
-  --color-space-200: #c9c9d2;
-  --color-space-300: #a4a4b3;
-  --color-space-400: #6f6f85;
-  --color-space-500: #44445a;
-  --color-space-600: #2b2b3d;
-  --color-space-700: #1f1f2e;
-  --color-space-800: #161622;
-  --color-space-900: #0a0a12;
+  /* 兼容：star / space / glaze → 统一灰阶（保证所有组件默认黑白） */
+  --color-star-50: #ffffff;
+  --color-star-100: #f5f5f5;
+  --color-star-200: #e6e6e6;
+  --color-star-300: #d1d1d1;
+  --color-star-400: #a8a8a8;
+  --color-star-500: #7a7a7a;
+  --color-star-600: #555555;
+  --color-star-700: #3a3a3a;
+  --color-star-800: #222222;
+  --color-star-900: #141414;
 
-  --color-glaze-50: #f4fff7;
-  --color-glaze-100: #e6f8ec;
-  --color-glaze-200: #c8efd7;
-  --color-glaze-300: #9ce0b8;
-  --color-glaze-400: #5fc98d;
-  --color-glaze-500: #35a868;
-  --color-glaze-600: #238a54;
-  --color-glaze-700: #1c6e44;
-  --color-glaze-800: #165636;
-  --color-glaze-900: #0f4228;
+  --color-space-50: #ffffff;
+  --color-space-100: #f0f0f0;
+  --color-space-200: #d9d9d9;
+  --color-space-300: #adadad;
+  --color-space-400: #7d7d7d;
+  --color-space-500: #525252;
+  --color-space-600: #383838;
+  --color-space-700: #262626;
+  --color-space-800: #171717;
+  --color-space-900: #0d0d0d;
+
+  --color-glaze-50: #ffffff;
+  --color-glaze-100: #f6f6f6;
+  --color-glaze-200: #e8e8e8;
+  --color-glaze-300: #d2d2d2;
+  --color-glaze-400: #a9a9a9;
+  --color-glaze-500: #7c7c7c;
+  --color-glaze-600: #525252;
+  --color-glaze-700: #3c3c3c;
+  --color-glaze-800: #282828;
+  --color-glaze-900: #1a1a1a;
+
+  /* === 星璃紫（accent 彩色点缀） === */
+  --color-accent-100: #f4f2ff;
+  --color-accent-200: #e2dcff;
+  --color-accent-300: #c4b8ff;
+  --color-accent-400: #a890ff;
+  --color-accent-500: #9b7bff;
+  --color-accent-600: #7b61ff;
+  --color-accent-700: #5a47c9;
 }
 
 :root {
   --bh-z: 0;
+  /* 星璃紫（accent 彩色点缀） */
+  --stellaria: #9b7bff;
+  --stellaria-soft: #c4b8ff;
+  --stellaria-deep: #7b61ff;
 }
 
 html {
@@ -49,55 +75,63 @@ html {
 }
 
 body {
-  @apply bg-space-900 text-space-100 antialiased;
-  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  @apply bg-gray-950 text-gray-200 antialiased;
+  font-family: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
   min-height: 100vh;
   position: relative;
+  letter-spacing: 0.01em;
 }
 
-/* ===== 极简背景光斑（对应 MinimalBackground） ===== */
+/* ===== 极简背景（纯黑 + 微弱白色光晕） ===== */
 .bg-minimal {
   background:
-    radial-gradient(600px 300px at 88% -8%, rgba(155, 123, 255, 0.07), transparent 60%),
-    radial-gradient(500px 260px at -8% 112%, rgba(43, 45, 107, 0.16), transparent 55%),
-    radial-gradient(300px 160px at 55% 0%, rgba(245, 217, 143, 0.04), transparent 60%);
+    radial-gradient(600px 300px at 88% -8%, rgba(255, 255, 255, 0.04), transparent 60%),
+    radial-gradient(500px 260px at -8% 112%, rgba(255, 255, 255, 0.02), transparent 55%);
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
 }
 
-/* ===== 毛玻璃卡片（glaze） ===== */
+/* ===== 毛玻璃卡片 ===== */
 .glass {
-  background: rgba(255, 255, 255, 0.035);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 .glass:hover {
-  border-color: rgba(155, 123, 255, 0.28);
+  border-color: rgba(255, 255, 255, 0.25);
   background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* ===== 主题按钮（btn-glaze 对应） ===== */
+/* ===== 主题按钮（黑白为主） ===== */
 .btn-glaze {
-  @apply inline-flex items-center justify-center gap-2 rounded-full border border-space-500/30 text-space-100 transition-all duration-300;
-  background: rgba(155, 123, 255, 0.06);
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-gray-600/50 text-gray-100 transition-all duration-300;
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
 }
 .btn-glaze:hover {
-  border-color: rgba(155, 123, 255, 0.5);
-  background: rgba(155, 123, 255, 0.12);
+  border-color: var(--stellaria);
+  background: rgba(155, 123, 255, 0.1);
   box-shadow: 0 0 24px rgba(155, 123, 255, 0.15);
   transform: translateY(-1px);
 }
 
-/* ===== 文档正文排版（对应 typography prose） ===== */
+/* ===== 首页品牌大字（黑白渐变，底部一抹星璃紫点缀） ===== */
+.glaze-text {
+  background: linear-gradient(180deg, #ffffff, var(--stellaria));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===== 文档正文排版 ===== */
 .prose-stelarith {
-  color: var(--color-space-100);
+  color: var(--color-gray-200);
   line-height: 1.85;
   font-size: 0.97rem;
 }
@@ -105,7 +139,7 @@ body {
 .prose-stelarith h2,
 .prose-stelarith h3,
 .prose-stelarith h4 {
-  @apply text-space-50;
+  @apply text-gray-50;
   font-weight: 600;
   margin-top: 1.6em;
   margin-bottom: 0.6em;
@@ -114,29 +148,29 @@ body {
 .prose-stelarith h1 { font-size: 1.7rem; }
 .prose-stelarith h2 {
   font-size: 1.35rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
   padding-bottom: 0.35em;
 }
 .prose-stelarith h3 { font-size: 1.15rem; }
 .prose-stelarith p { margin: 0.9em 0; }
 .prose-stelarith a {
-  color: var(--color-star-400);
+  color: var(--stellaria-soft);
   text-decoration: none;
-  border-bottom: 1px solid rgba(155, 123, 255, 0.25);
+  border-bottom: 1px solid rgba(155, 123, 255, 0.3);
   transition: color 0.2s, border-color 0.2s;
 }
-.prose-stelarith a:hover { color: var(--color-star-300); border-color: var(--color-star-400); }
+.prose-stelarith a:hover { color: var(--stellaria); border-color: var(--stellaria); }
 .prose-stelarith ul, .prose-stelarith ol { margin: 0.9em 0; padding-left: 1.4em; }
 .prose-stelarith ul { list-style: disc; }
 .prose-stelarith ol { list-style: decimal; }
 .prose-stelarith li { margin: 0.3em 0; }
 .prose-stelarith blockquote {
-  border-left: 2px solid var(--color-star-600);
+  border-left: 2px solid var(--stellaria);
   background: rgba(155, 123, 255, 0.05);
   padding: 0.6em 1.2em;
   margin: 1em 0;
   border-radius: 0 8px 8px 0;
-  color: var(--color-space-300);
+  color: var(--color-gray-400);
 }
 .prose-stelarith code {
   font-family: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
@@ -144,11 +178,11 @@ body {
   background: rgba(255, 255, 255, 0.08);
   padding: 0.15em 0.4em;
   border-radius: 4px;
-  color: var(--color-star-300);
+  color: var(--stellaria-soft);
 }
 .prose-stelarith pre {
   background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 10px;
   padding: 1em 1.2em;
   overflow-x: auto;
@@ -157,7 +191,7 @@ body {
 .prose-stelarith pre code {
   background: transparent;
   padding: 0;
-  color: var(--color-space-100);
+  color: var(--color-gray-100);
   font-size: 0.85rem;
   line-height: 1.7;
 }
@@ -165,9 +199,9 @@ body {
 .prose-stelarith table { width: 100%; border-collapse: collapse; margin: 1.2em 0; font-size: 0.9rem; }
 .prose-stelarith th, .prose-stelarith td { border: 1px solid rgba(255, 255, 255, 0.1); padding: 0.5em 0.9em; text-align: left; }
 .prose-stelarith th { background: rgba(255, 255, 255, 0.05); }
-.prose-stelarith hr { border: none; border-top: 1px dashed rgba(255, 255, 255, 0.12); margin: 2em 0; }
+.prose-stelarith hr { border: none; border-top: 1px dashed rgba(255, 255, 255, 0.14); margin: 2em 0; }
 
-/* ===== 黑洞彩蛋按钮 ===== */
+/* ===== 黑洞彩蛋按钮（黑白 + 星璃紫点缀） ===== */
 .bh-toggle {
   position: fixed;
   right: 18px;
@@ -175,8 +209,8 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(155, 123, 255, 0.25);
-  background: rgba(10, 10, 18, 0.5);
+  border: 1px solid rgba(155, 123, 255, 0.3);
+  background: rgba(13, 13, 13, 0.6);
   backdrop-filter: blur(8px);
   color: var(--color-star-400);
   cursor: pointer;
@@ -184,27 +218,27 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.4;
+  opacity: 0.45;
   transition: opacity 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 .bh-toggle:hover { opacity: 1; transform: scale(1.1); box-shadow: 0 0 20px rgba(155, 123, 255, 0.3); }
 .bh-toggle.is-active { opacity: 1; color: var(--color-star-300); }
 .bh-toggle svg { width: 20px; height: 20px; }
 
-/* ===== 滚动条 ===== */
+/* ===== 滚动条（黑白） ===== */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(155, 123, 255, 0.4); }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.14); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(155, 123, 255, 0.45); }
 
-/* ===== KaTeX 调整（暗色） ===== */
-.katex { color: var(--color-space-100); }
+/* ===== KaTeX ===== */
+.katex { color: var(--color-gray-200); }
 
-/* ===== 搜索弹窗 ===== */
+/* ===== 搜索弹窗（纯黑） ===== */
 .search-dialog-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(5, 5, 10, 0.7);
+  background: rgba(0, 0, 0, 0.72);
   backdrop-filter: blur(8px);
   z-index: 1000;
   display: flex;
@@ -219,21 +253,21 @@ body {
 .search-dialog {
   width: 560px;
   max-width: calc(100vw - 32px);
-  background: rgba(20, 20, 32, 0.95);
-  border: 1px solid rgba(155, 123, 255, 0.2);
+  background: rgba(18, 18, 18, 0.96);
+  border: 1px solid rgba(155, 123, 255, 0.22);
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
   transform: translateY(-8px) scale(0.98);
   transition: transform 0.2s;
 }
 .search-dialog-overlay.show .search-dialog { transform: translateY(0) scale(1); }
 
-/* ===== 灯箱 ===== */
+/* ===== 灯箱（纯黑） ===== */
 .lightbox-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(0, 0, 0, 0.9);
   z-index: 1100;
   display: flex;
   align-items: center;

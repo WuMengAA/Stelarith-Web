@@ -3,8 +3,8 @@
     <div class="mx-auto max-w-5xl px-6 py-12">
       <div class="flex flex-col items-center gap-6 md:flex-row md:items-start md:justify-between">
         <div class="text-center md:text-left">
-          <p class="font-display text-sm tracking-[0.3em] text-star-300">STELARITH</p>
-          <p class="mt-2 text-sm text-star-400">黑白之间的星夜空间</p>
+          <p class="font-display text-sm tracking-[0.3em] text-accent-400">STELARITH</p>
+          <p class="mt-2 text-sm text-gray-500">黑白之间的星夜空间</p>
         </div>
 
         <div class="flex flex-col items-center gap-6 md:flex-row md:items-start md:gap-12">
@@ -13,7 +13,7 @@
               v-for="link in siteConfig.footerLinks"
               :key="link.label"
               :to="link.href"
-              class="text-sm tracking-widest text-star-400 transition-colors hover:text-star-100"
+              class="text-sm tracking-widest text-gray-400 transition-colors hover:text-accent-400"
             >
               {{ link.label }}
             </NuxtLink>
@@ -21,14 +21,14 @@
           <div class="flex items-center gap-6">
             <NuxtLink
               :to="`/go?to=${encodeURIComponent(siteConfig.links.github)}`"
-              class="text-sm tracking-widest text-star-400 transition-colors hover:text-star-100"
+              class="text-sm tracking-widest text-gray-400 transition-colors hover:text-accent-400"
               aria-label="GitHub"
             >
               GitHub
             </NuxtLink>
             <a
               :href="`mailto:${siteConfig.links.email}`"
-              class="text-sm tracking-widest text-star-400 transition-colors hover:text-star-100"
+              class="text-sm tracking-widest text-gray-400 transition-colors hover:text-accent-400"
               aria-label="邮箱"
             >
               邮箱

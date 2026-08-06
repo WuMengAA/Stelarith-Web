@@ -12,7 +12,7 @@
     <div v-if="post.tags && post.tags.length > 0" class="mt-auto">
       <TagList :tags="post.tags" :tone="tone" :limit="3" />
     </div>
-    <span class="mt-4 text-xs tracking-widest text-star-400 transition-colors duration-300 group-hover:text-star-100">
+    <span class="mt-4 text-xs tracking-widest text-gray-500 transition-colors duration-300 group-hover:text-accent-400">
       阅读 →
     </span>
   </NuxtLink>

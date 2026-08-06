@@ -6,7 +6,7 @@
       <div v-else class="border border-space-500/15 p-10 text-center">
         <p class="text-star-300">留言功能正在准备中。</p>
         <p class="mt-3 text-sm text-star-400">配置好 GitHub Discussions 后即可开启评论。在此之前，可以写信到：</p>
-        <a :href="`mailto:${siteConfig.links.email}?subject=留言板`" class="mt-5 inline-block border-b border-star-400/40 pb-0.5 text-sm tracking-widest text-star-200 transition-colors hover:border-star-100 hover:text-star-100">
+        <a :href="`mailto:${siteConfig.links.email}?subject=留言板`" class="mt-5 inline-block border-b border-accent-500/40 pb-0.5 text-sm tracking-widest text-accent-300 transition-colors hover:border-accent-500 hover:text-accent-400">
           {{ siteConfig.links.email }}
         </a>
       </div>

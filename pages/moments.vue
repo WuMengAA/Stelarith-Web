@@ -5,11 +5,11 @@
       <template v-if="moments.length > 0">
         <div class="relative space-y-8 before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-px before:bg-space-500/20">
           <article v-for="m in moments" :key="m.path" class="relative pl-9">
-            <span class="absolute left-0 top-1.5 h-[15px] w-[15px] rounded-full border border-star-400/50 bg-space-900"></span>
+            <span class="absolute left-0 top-1.5 h-[15px] w-[15px] rounded-full border border-accent-500/60 bg-space-900"></span>
             <div class="glass p-5">
               <div class="flex items-center justify-between">
-                <time class="text-xs text-star-400">{{ fmtDate(m.pubDate, true) }}</time>
-                <span v-if="m.mood" class="text-xs text-star-400">{{ m.mood }}</span>
+                <time class="text-xs text-gray-400">{{ fmtDate(m.pubDate, true) }}</time>
+                <span v-if="m.mood" class="text-xs text-accent-400">{{ m.mood }}</span>
               </div>
               <div class="prose-stelarith mt-3" v-html="m.bodyHtml" />
               <div v-if="m.type === 'image' && m.images?.length" class="mt-4 grid gap-2" :class="m.images.length === 1 ? 'grid-cols-1' : 'grid-cols-2'">

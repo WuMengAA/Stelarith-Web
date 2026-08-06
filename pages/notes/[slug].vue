@@ -15,7 +15,7 @@
       <div class="prose-stelarith" v-html="note.bodyHtml" />
 
       <nav class="mt-20 border-t border-space-500/10 pt-6 text-sm">
-        <NuxtLink to="/notes" class="tracking-widest text-star-400 transition-colors hover:text-star-100">
+        <NuxtLink to="/notes" class="tracking-widest text-gray-400 transition-colors hover:text-accent-400">
           ← 返回随记
         </NuxtLink>
       </nav>

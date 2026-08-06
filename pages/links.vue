@@ -23,7 +23,7 @@
       <div class="mt-14 border-t border-space-500/10 pt-8 text-center">
         <p class="text-sm text-star-400">想交换友链？</p>
         <p class="mt-2 text-sm text-star-300">欢迎来信，附上你的站点名、链接与一句话介绍：</p>
-        <a :href="`mailto:${siteConfig.links.email}?subject=友链交换`" class="mt-4 inline-block border-b border-star-400/40 pb-0.5 text-sm tracking-widest text-star-200 transition-colors hover:border-star-100 hover:text-star-100">
+        <a :href="`mailto:${siteConfig.links.email}?subject=友链交换`" class="mt-4 inline-block border-b border-accent-500/40 pb-0.5 text-sm tracking-widest text-accent-300 transition-colors hover:border-accent-500 hover:text-accent-400">
           {{ siteConfig.links.email }}
         </a>
       </div>

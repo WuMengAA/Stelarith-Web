@@ -4,7 +4,7 @@
       <p class="font-display text-xs uppercase tracking-[0.4em]" :class="accents[accent]">{{ eyebrow }}</p>
       <h2 class="mt-3 text-2xl font-light text-star-100 md:text-3xl">{{ title }}</h2>
     </div>
-    <NuxtLink v-if="href" :to="href" class="text-sm tracking-widest text-star-400 transition-colors hover:text-star-100">
+    <NuxtLink v-if="href" :to="href" class="text-sm tracking-widest text-gray-400 transition-colors hover:text-accent-400">
       {{ hrefLabel }}
     </NuxtLink>
   </div>
@@ -20,8 +20,8 @@ withDefaults(defineProps<{
 }>(), { accent: "space", hrefLabel: "全部 →" });
 
 const accents = {
-  space: "text-space-400",
-  twilight: "text-twilight-400",
-  glaze: "text-gold-400",
+  space: "text-gray-400",
+  twilight: "text-gray-300",
+  glaze: "text-accent-400",
 } as const;
 </script>

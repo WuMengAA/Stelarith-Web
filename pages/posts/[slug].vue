@@ -19,7 +19,7 @@
       <ArticleToc v-if="tocItems.length" :items="tocItems" />
 
       <nav class="mt-20 border-t border-space-500/10 pt-6 text-sm">
-        <NuxtLink to="/posts" class="tracking-widest text-star-400 transition-colors hover:text-star-100">
+        <NuxtLink to="/posts" class="tracking-widest text-gray-400 transition-colors hover:text-accent-400">
           ← 返回文章列表
         </NuxtLink>
       </nav>

@@ -20,9 +20,9 @@
       <div class="prose-stelarith" v-html="project.bodyHtml" />
 
       <div class="mt-10 flex gap-5 text-sm">
-        <NuxtLink to="/projects" class="tracking-widest text-star-400 transition-colors hover:text-star-100">← 返回项目列表</NuxtLink>
-        <a v-if="project.repo" :href="project.repo" target="_blank" rel="noopener noreferrer" class="text-star-400 transition-colors hover:text-star-100">源码 ↗</a>
-        <a v-if="project.demo" :href="project.demo" target="_blank" rel="noopener noreferrer" class="text-star-400 transition-colors hover:text-star-100">演示 ↗</a>
+        <NuxtLink to="/projects" class="tracking-widest text-gray-400 transition-colors hover:text-accent-400">← 返回项目列表</NuxtLink>
+        <a v-if="project.repo" :href="project.repo" target="_blank" rel="noopener noreferrer" class="text-gray-400 transition-colors hover:text-accent-400">源码 ↗</a>
+        <a v-if="project.demo" :href="project.demo" target="_blank" rel="noopener noreferrer" class="text-gray-400 transition-colors hover:text-accent-400">演示 ↗</a>
       </div>
     </template>
     <div v-else class="py-20 text-center text-star-400">项目不存在</div>

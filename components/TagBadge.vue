@@ -11,10 +11,10 @@ const props = withDefaults(defineProps<{
 }>(), { tone: "space" });
 
 const toneClass = computed(() => ({
-  space: "text-space-400 hover:text-star-100",
-  twilight: "text-twilight-300 hover:text-star-100",
-  glaze: "text-gold-400 hover:text-star-100",
-}[props.tone] || "text-space-400 hover:text-star-100"));
+  space: "text-gray-400 hover:text-accent-500",
+  twilight: "text-gray-300 hover:text-accent-500",
+  glaze: "text-accent-400 hover:text-accent-300",
+}[props.tone] || "text-gray-400 hover:text-accent-500"));
 </script>
 
 <style scoped>

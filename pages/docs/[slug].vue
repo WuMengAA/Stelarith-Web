@@ -10,7 +10,7 @@
             :key="d._id"
             :to="`/docs/${d._id}`"
             class="block py-1 text-sm transition-colors"
-            :class="d._id === doc?._id ? 'text-star-100' : 'text-star-400 hover:text-star-100'"
+            :class="d._id === doc?._id ? 'text-accent-400' : 'text-gray-400 hover:text-accent-400'"
           >
             {{ d.title }}
           </NuxtLink>
@@ -27,7 +27,7 @@
           <div class="my-8 h-px bg-space-500/15" />
           <div class="prose-stelarith" v-html="doc.bodyHtml" />
           <nav class="mt-16 border-t border-space-500/10 pt-6 text-sm">
-            <NuxtLink to="/docs" class="tracking-widest text-star-400 transition-colors hover:text-star-100">← 返回文档列表</NuxtLink>
+            <NuxtLink to="/docs" class="tracking-widest text-gray-400 transition-colors hover:text-accent-400">← 返回文档列表</NuxtLink>
           </nav>
         </template>
         <div v-else class="py-20 text-center text-star-400">文档不存在</div>

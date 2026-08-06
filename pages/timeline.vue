@@ -5,8 +5,8 @@
       <template v-if="milestones.length > 0">
         <div class="relative before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-px before:bg-space-500/20">
           <article v-for="m in milestones" :key="m.path" class="relative mb-10 pl-9 last:mb-0">
-            <span class="absolute left-0 top-2 h-[15px] w-[15px] rounded-full border border-star-400/50 bg-space-900">
-              <span class="absolute inset-[4px] rounded-full" :class="typeDot[m.type] || 'bg-star-400'" />
+            <span class="absolute left-0 top-2 h-[15px] w-[15px] rounded-full border border-accent-500/60 bg-space-900">
+              <span class="absolute inset-[4px] rounded-full" :class="typeDot[m.type] || 'bg-accent-500'" />
             </span>
             <time class="text-xs tracking-widest text-star-400">{{ fmtDate(m.date, true) }}</time>
             <h2 class="mt-2 text-lg font-medium text-star-100">{{ m.title }}</h2>
@@ -25,9 +25,9 @@
 import { fmtDate, getAllPublished } from "~/composables/useContent";
 
 const typeDot: Record<string, string> = {
-  milestone: "bg-star-100",
-  project: "bg-space-500",
-  note: "bg-star-400",
+  milestone: "bg-accent-500",
+  project: "bg-gray-400",
+  note: "bg-accent-400",
 };
 
 useHead({ title: "大事记 · 星璃", meta: [{ name: "description", content: "星璃的成长时间线" }] });

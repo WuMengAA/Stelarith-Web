@@ -19,13 +19,13 @@
             :key="item.label"
             :to="item.href"
             class="text-sm tracking-wide transition-colors duration-200"
-            :class="isActive(item.href) ? 'text-star-100' : 'text-star-400 hover:text-star-100'"
+            :class="isActive(item.href) ? 'text-accent-400' : 'text-gray-400 hover:text-accent-400'"
           >
             {{ item.label }}
           </NuxtLink>
           <button
             type="button"
-            class="search-trigger flex items-center gap-2 text-sm tracking-wide text-star-400 transition-colors duration-200 hover:text-star-100"
+            class="search-trigger flex items-center gap-2 text-sm tracking-wide text-gray-400 transition-colors duration-200 hover:text-accent-400"
             aria-label="搜索"
             @click="openSearch"
           >
@@ -40,7 +40,7 @@
         <div class="flex items-center gap-3 md:hidden">
           <button
             type="button"
-            class="search-trigger flex h-10 w-10 items-center justify-center text-star-300 transition-colors hover:text-star-100"
+            class="search-trigger flex h-10 w-10 items-center justify-center text-gray-300 transition-colors hover:text-accent-400"
             aria-label="搜索"
             @click="openSearch"
           >
@@ -71,7 +71,7 @@
             :key="item.label"
             :to="item.href"
             class="border-b border-space-500/10 py-3.5 text-sm transition-colors last:border-b-0"
-            :class="isActive(item.href) ? 'text-star-100' : 'text-star-400 hover:text-star-100'"
+            :class="isActive(item.href) ? 'text-accent-400' : 'text-gray-400 hover:text-accent-400'"
             @click="menuOpen = false"
           >
             {{ item.label }}

@@ -17,7 +17,7 @@
         {{ desc ? `${desc}${size ? ` · ${size}` : ""}` : size }}
       </span>
     </span>
-    <span class="shrink-0 text-sm text-star-400 transition-colors group-hover:text-star-100">下载 →</span>
+    <span class="shrink-0 text-sm text-gray-500 transition-colors group-hover:text-accent-400">下载 →</span>
   </a>
 </template>
 

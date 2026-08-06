@@ -6,12 +6,12 @@
       <p class="mt-4 max-w-md break-all text-center text-sm text-star-400">{{ target }}</p>
       <div class="mt-8 flex items-center gap-4">
         <a :href="target" target="_blank" rel="noopener noreferrer" class="btn-glaze px-8 py-3 text-sm tracking-widest">安全跳转</a>
-        <NuxtLink to="/" class="border border-space-500/30 px-8 py-3 text-sm tracking-widest text-star-300 transition-colors hover:border-space-400 hover:text-star-100">返回首页</NuxtLink>
+        <NuxtLink to="/" class="border border-space-500/30 px-8 py-3 text-sm tracking-widest text-gray-300 transition-colors hover:border-accent-500 hover:text-accent-400">返回首页</NuxtLink>
       </div>
     </template>
     <template v-else>
-      <h1 class="mt-6 text-3xl font-extralight text-star-100">无效的跳转地址</h1>
-      <NuxtLink to="/" class="mt-10 border border-space-500/30 px-8 py-3 text-sm tracking-widest text-star-300 transition-colors hover:border-space-400 hover:text-star-100">返回首页</NuxtLink>
+      <h1 class="mt-6 text-3xl font-extralight text-gray-100">无效的跳转地址</h1>
+      <NuxtLink to="/" class="mt-10 border border-space-500/30 px-8 py-3 text-sm tracking-widest text-gray-300 transition-colors hover:border-accent-500 hover:text-accent-400">返回首页</NuxtLink>
     </template>
   </div>
 </template>

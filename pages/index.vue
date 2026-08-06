@@ -3,7 +3,7 @@
     <!-- HERO -->
     <section class="relative flex min-h-[88vh] items-center justify-center px-6 pt-20">
       <div class="mx-auto max-w-3xl text-center">
-        <p class="font-display text-xs uppercase tracking-[0.5em] text-star-400">White · Gray · Black</p>
+        <p class="font-display text-xs uppercase tracking-[0.5em] text-gray-500">White · Gray · Black</p>
         <h1 class="mt-8 font-display text-5xl font-extralight leading-tight md:text-7xl">
           <span class="glaze-text">星 璃</span>
         </h1>
@@ -14,7 +14,7 @@
         </p>
         <div class="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <NuxtLink to="/posts" class="btn-glaze px-10 py-3.5 text-sm font-normal tracking-widest">阅读文章</NuxtLink>
-          <NuxtLink to="/about" class="border border-space-500/30 px-10 py-3.5 text-sm font-normal tracking-widest text-star-300 transition-colors hover:border-space-400 hover:text-star-100">
+          <NuxtLink to="/about" class="border border-space-500/30 px-10 py-3.5 text-sm font-normal tracking-widest text-gray-300 transition-colors hover:border-accent-500 hover:text-accent-400">
             认识星璃
           </NuxtLink>
         </div>

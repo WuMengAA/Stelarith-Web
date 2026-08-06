@@ -38,7 +38,7 @@ defineProps<{ items: any[] }>();
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-star-400);
+  color: var(--stellaria);
   margin-bottom: 10px;
 }
 .toc-link {
@@ -50,7 +50,7 @@ defineProps<{ items: any[] }>();
   transition: color 0.2s;
   text-decoration: none;
 }
-.toc-link:hover { color: var(--color-star-300); }
+.toc-link:hover { color: var(--stellaria); }
 .toc-h2 { padding-left: 0; }
 .toc-h3 { padding-left: 12px; font-size: 11.5px; }
 </style>

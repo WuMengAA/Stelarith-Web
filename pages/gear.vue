@@ -14,7 +14,7 @@
                 <span class="shrink-0 text-[11px] tracking-wide text-star-400">{{ g.category }}</span>
               </div>
               <p v-if="g.description" class="mt-2 text-sm leading-relaxed text-star-400">{{ g.description }}</p>
-              <a v-if="g.url" :href="g.url" target="_blank" rel="noopener noreferrer" class="mt-3 inline-block text-xs tracking-widest text-star-300 transition-colors hover:text-star-100">
+              <a v-if="g.url" :href="g.url" target="_blank" rel="noopener noreferrer" class="mt-3 inline-block text-xs tracking-widest text-gray-400 transition-colors hover:text-accent-400">
                 了解更多 ↗
               </a>
             </div>

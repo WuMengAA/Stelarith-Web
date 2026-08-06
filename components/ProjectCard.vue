@@ -23,14 +23,14 @@
     <div class="mt-4 flex gap-5 text-sm">
       <NuxtLink
         :to="`/projects/${project._id}`"
-        class="border-b border-transparent pb-0.5 tracking-widest text-star-300 transition-all duration-300 hover:border-star-100 hover:text-star-100"
+        class="border-b border-transparent pb-0.5 tracking-widest text-accent-400 transition-all duration-300 hover:border-accent-500 hover:text-accent-300"
       >
         详情
       </NuxtLink>
-      <a v-if="project.repo" :href="project.repo" target="_blank" rel="noopener noreferrer" class="text-star-400 transition-colors duration-300 hover:text-star-100">
+      <a v-if="project.repo" :href="project.repo" target="_blank" rel="noopener noreferrer" class="text-gray-400 transition-colors duration-300 hover:text-accent-400">
         源码 ↗
       </a>
-      <a v-if="project.demo" :href="project.demo" target="_blank" rel="noopener noreferrer" class="text-star-400 transition-colors duration-300 hover:text-star-100">
+      <a v-if="project.demo" :href="project.demo" target="_blank" rel="noopener noreferrer" class="text-gray-400 transition-colors duration-300 hover:text-accent-400">
         演示 ↗
       </a>
     </div>

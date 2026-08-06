@@ -44,9 +44,9 @@ export const projectStatusText: Record<string, string> = {
 /** 项目状态 → 徽章类名 */
 export function projectStatusClass(status: string): string {
   switch (status) {
-    case "active": return "bg-glaze-400/15 text-glaze-300";
-    case "idea": return "bg-space-400/15 text-space-400";
-    default: return "bg-star-400/10 text-star-400";
+    case "active": return "bg-accent-500/15 text-accent-400";
+    case "idea": return "bg-gray-400/15 text-gray-400";
+    default: return "bg-accent-400/10 text-accent-400";
   }
 }
 

@@ -41,7 +41,7 @@
 
     <div class="mt-20 border-t border-space-500/10 pt-10 text-center">
       <p class="text-star-300">"星光不问归处，但我会陪你找到答案。"</p>
-      <a :href="`mailto:${siteConfig.links.email}`" class="mt-6 inline-block border-b border-star-400/40 pb-0.5 text-sm tracking-widest text-star-200 transition-colors hover:border-star-100 hover:text-star-100">
+      <a :href="`mailto:${siteConfig.links.email}`" class="mt-6 inline-block border-b border-accent-500/40 pb-0.5 text-sm tracking-widest text-accent-300 transition-colors hover:border-accent-500 hover:text-accent-400">
         给星璃写信
       </a>
     </div>

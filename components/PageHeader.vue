@@ -15,8 +15,8 @@ withDefaults(defineProps<{
 }>(), { accent: "space" });
 
 const accents = {
-  space: "text-space-400",
-  twilight: "text-twilight-400",
-  glaze: "text-gold-400",
+  space: "text-gray-400",
+  twilight: "text-gray-300",
+  glaze: "text-accent-400",
 } as const;
 </script>
