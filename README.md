@@ -12,6 +12,32 @@
 - **Pagefind**（静态搜索索引）
 - **giscus**（可选评论）
 
+## 内容管理（Pages CMS）
+
+本站的**内容后台统一交给 Pages CMS**（Git 驱动的开源 CMS，`https://app.pagescms.org`），直接编辑 `content/` 下的 md / mdx / json 并 commit 回仓库，触发自动部署。无需本地再维护一套内容编辑后台。
+
+配置文件 `.pages.yml` 已覆盖全部集合：
+
+| 集合 | 路径 | 说明 |
+|------|------|------|
+| `posts` | `content/posts` | 文章（标题/摘要/日期/标签/状态/正文） |
+| `notes` | `content/notes` | 笔记 |
+| `projects` | `content/projects` | 项目（状态/源码/演示） |
+| `software` | `content/software` | 软件（版本/平台/分类/下载 key） |
+| `gallery` | `content/gallery` | 图库（图片/标签） |
+| `gears` | `content/gears` | 装备 |
+| `moments` | `content/moments` | 瞬间 |
+| `links` | `content/links` | 友链 |
+| `milestones` | `content/milestones` | 大事记 |
+| `docs` | `content/docs` | 文档 |
+
+**接入步骤**：
+1. 打开 <https://app.pagescms.org>，用 GitHub 登录
+2. 选择本仓库 `WuMengAA/Stelarith-Web`（首次需授权 Pages CMS 的 GitHub App）
+3. 左侧即可编辑各集合内容，保存即 commit + 触发部署
+
+> 说明：图库图片/软件图标等通过 Pages CMS 的媒体上传到 `public/images/`；**软件文件（zip）等二进制**仍走站内 `/api/upload`（PageCMS 只写 Git 仓库，不托管大文件），上传后用返回的 key 填软件的 `file` 字段。
+
 ## 快速开始
 
 ```bash

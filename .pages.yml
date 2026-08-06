@@ -1,0 +1,271 @@
+# ============================================================
+#  Stelarith · Pages CMS 配置
+#  Pages CMS (https://app.pagescms.org) 是一个 Git 驱动的开源 CMS，
+#  用它来管理本站 content/ 下的全部内容（文章/笔记/项目/软件/图库等）。
+#  改动会直接 commit 回 GitHub 仓库 → 触发 GitHub Pages 重新构建部署。
+#
+#  接入方法：
+#    1. 打开 https://app.pagescms.org
+#    2. 用 GitHub 登录 → 选择本仓库 (WuMengAA/Stelarith-Web)
+#    3. Pages CMS 会自动读取本文件，左侧即可编辑各集合内容
+#  说明：软件文件(zip)等二进制的上传仍走站内 /api/upload（PageCMS 只写 Git）。
+# ============================================================
+
+# 媒体上传：图库 / 文章配图统一传到 public/images/
+media:
+  input: public/images
+  output: /images
+
+content:
+  # ===== 文章 =====
+  - name: posts
+    label: 文章
+    type: collection
+    path: content/posts
+    view:
+      fields: [title, pubDate, tags, status]
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: description
+        type: string
+        label: 摘要
+      - name: pubDate
+        type: date
+        required: true
+      - name: tags
+        type: list
+        items: string
+      - name: status
+        type: select
+        options: [draft, published]
+      - name: body
+        type: rich-text
+
+  # ===== 笔记 =====
+  - name: notes
+    label: 笔记
+    type: collection
+    path: content/notes
+    view:
+      fields: [title, pubDate, tags]
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: pubDate
+        type: date
+        required: true
+      - name: tags
+        type: list
+        items: string
+      - name: body
+        type: rich-text
+
+  # ===== 项目 =====
+  - name: projects
+    label: 项目
+    type: collection
+    path: content/projects
+    view:
+      fields: [title, status, pubDate]
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: description
+        type: string
+        label: 摘要
+      - name: pubDate
+        type: date
+        required: true
+      - name: status
+        type: select
+        options: [active, idea, archived]
+        default: idea
+      - name: tags
+        type: list
+        items: string
+      - name: repo
+        type: string
+        label: 源码链接
+      - name: demo
+        type: string
+        label: 演示链接
+      - name: body
+        type: rich-text
+
+  # ===== 软件 =====
+  - name: software
+    label: 软件
+    type: collection
+    path: content/software
+    view:
+      fields: [name, version, platform, category]
+    fields:
+      - name: name
+        type: string
+        required: true
+      - name: version
+        type: string
+        label: 版本
+      - name: platform
+        type: select
+        options: [Windows, macOS, Linux, 全平台]
+      - name: category
+        type: string
+        label: 分类
+      - name: description
+        type: string
+        label: 摘要
+      - name: size
+        type: string
+        label: 文件大小
+      - name: icon
+        type: string
+        label: 图标字符
+      - name: file
+        type: string
+        label: 下载文件 key（uploads/xxx）
+        help: 通过站内 /api/upload 上传后填这里，配合站内下载计数
+      - name: order
+        type: number
+        label: 排序
+      - name: pubDate
+        type: date
+
+  # ===== 图库 =====
+  - name: gallery
+    label: 图库
+    type: collection
+    path: content/gallery
+    view:
+      fields: [title, src, tags]
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: src
+        type: image
+        label: 图片
+        required: true
+      - name: alt
+        type: string
+        label: 替代文本
+      - name: tags
+        type: list
+        items: string
+
+  # ===== 装备 =====
+  - name: gears
+    label: 装备
+    type: collection
+    path: content/gears
+    view:
+      fields: [name, category, order]
+    fields:
+      - name: name
+        type: string
+        required: true
+      - name: category
+        type: string
+      - name: description
+        type: string
+        label: 摘要
+      - name: image
+        type: image
+        label: 图片
+      - name: url
+        type: string
+        label: 链接
+      - name: order
+        type: number
+        label: 排序
+
+  # ===== 瞬间 =====
+  - name: moments
+    label: 瞬间
+    type: collection
+    path: content/moments
+    view:
+      fields: [pubDate, type, mood]
+    fields:
+      - name: pubDate
+        type: date
+        required: true
+      - name: type
+        type: select
+        options: [image, text]
+      - name: images
+        type: list
+        items: image
+      - name: mood
+        type: string
+        label: 心情
+      - name: body
+        type: rich-text
+
+  # ===== 友链 =====
+  - name: links
+    label: 友链
+    type: collection
+    path: content/links
+    view:
+      fields: [name, url]
+    fields:
+      - name: name
+        type: string
+        required: true
+      - name: url
+        type: string
+        required: true
+      - name: description
+        type: string
+        label: 摘要
+      - name: avatar
+        type: image
+        label: 头像
+
+  # ===== 大事记（时间轴） =====
+  - name: milestones
+    label: 大事记
+    type: collection
+    path: content/milestones
+    view:
+      fields: [title, date, type]
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: date
+        type: date
+        required: true
+      - name: type
+        type: string
+        label: 类型
+      - name: body
+        type: rich-text
+
+  # ===== 文档 =====
+  - name: docs
+    label: 文档
+    type: collection
+    path: content/docs
+    view:
+      fields: [title, group, order]
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: description
+        type: string
+        label: 摘要
+      - name: group
+        type: string
+        label: 分组
+      - name: order
+        type: number
+        label: 排序
+      - name: body
+        type: rich-text

@@ -1,0 +1,31 @@
+# ============================================================
+#  Stelarith · Cloudflare Tunnel 配置（本地自托管节点接入）
+#  用途：把本地 3000 端口的 node-server 安全暴露给 Cloudflare，
+#        作为 Load Balancer 的第二 origin（与 Cloudflare Pages 分流）
+#
+#  首次使用（需 Cloudflare 账号 + 域名）：
+#    1. 安装 cloudflared：https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/
+#    2. 登录：cloudflared tunnel login
+#    3. 创建：cloudflared tunnel create stelarith-local
+#    4. 把生成的凭据 JSON 放到本目录（tunnel-id 填入下方）
+#    5. 启动：cloudflared tunnel --config deploy/tunnel/config.yml run stelarith-local
+#
+#  注意：hostname 需替换为你的真实域名，如 stelarith.dev
+# ============================================================
+
+# 隧道名称与凭据文件位置
+tunnel: stelarith-local
+credentials-file: ./deploy/tunnel/stelarith-local.json
+
+# 入口规则：将公网主机名映射到本地服务
+ingress:
+  # 主入口 → 本地 node-server（3000 端口）
+  - hostname: stelarith.dev
+    service: http://localhost:3000
+
+  # 备用：www 子域同样指向本地
+  - hostname: www.stelarith.dev
+    service: http://localhost:3000
+
+  # 兜底：所有其他流量 → 本地
+  - service: http://localhost:3000

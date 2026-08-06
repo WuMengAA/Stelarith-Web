@@ -1,0 +1,25 @@
+# ============================================================
+#  Stelarith · Cloudflare Pages 全栈部署配置（方案 B）
+#  双重站点分流分压架构的「云侧」节点
+#  部署：npx wrangler pages deploy dist --project-name stelarith
+#  或使用 GitHub Actions（见 .github/workflows/deploy-cf.yml）
+# ============================================================
+
+name = "stelarith"
+compatibility_date = "2025-07-15"
+
+# R2 存储桶（图库上传/文件分发）
+[[r2_buckets]]
+binding = "STELARITH_R2"
+bucket_name = "stelarith-assets"
+
+# D1 数据库（访客统计 / 留言板，可选用）
+[[d1_databases]]
+binding = "STELARITH_D1"
+database_name = "stelarith-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# KV（可选：缓存 / 轻量状态）
+[[kv_namespaces]]
+binding = "STELARITH_KV"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"

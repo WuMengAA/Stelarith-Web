@@ -7,15 +7,16 @@ node_modules/
 .nuxt/
 .output/
 dist/
-.data/
 .nitro/
+
+# 本地自托管运行时数据（上传/统计等）
+.data/
+.data-stelarith/
 
 # 内容缓存
 public/content-data/
 .data/
 content.config.ts.bak
-server/utils/content-reader.ts
-server/api/debug.ts
 
 # 环境
 .env
@@ -38,6 +39,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
+# 构建临时输出（命令行重定向）
+build-*.txt
 
 # 系统
 .DS_Store

@@ -9,7 +9,11 @@
     "build": "nuxt build",
     "generate": "node ./scripts/build-content.mjs && nuxt generate && node ./scripts/postbuild.mjs",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "build:gh": "node ./scripts/build-content.mjs && cross-env DEPLOY_TARGET=github nuxt build && node ./scripts/postbuild.mjs",
+    "build:cf": "node ./scripts/build-content.mjs && cross-env DEPLOY_TARGET=cloudflare nuxt build && node ./scripts/postbuild.mjs",
+    "build:local": "node ./scripts/build-content.mjs && cross-env DEPLOY_TARGET=local nuxt build && node ./scripts/postbuild.mjs",
+    "selfhost": "node ./scripts/selfhost.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.3",
@@ -23,6 +27,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
+    "cross-env": "^10.1.0",
     "katex": "^0.16.21",
     "pagefind": "^1.5.2",
     "rehype-katex": "^7.0.1",
